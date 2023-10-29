@@ -5,10 +5,11 @@
         <Nullable>enable</Nullable>
         <LangVersion>latest</LangVersion>
         <TargetFramework>netstandard2.0</TargetFramework>
-        <RootNamespace>Resultts</RootNamespace>
+        <RootNamespace>Results</RootNamespace>
         <Authors>CAA LLC</Authors>
         <Copyright>2023 CA Anderson LLC</Copyright>
-        <RepositoryUrl>https://github.com/chrisa23/Result</RepositoryUrl>
+        <RepositoryUrl>https://github.com/chrisa23/Results</RepositoryUrl>
+        <PackageId>CAA.Results</PackageId>
     </PropertyGroup>
 
 </Project>

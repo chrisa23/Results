@@ -29,12 +29,14 @@ public record Result<T>(bool Success, T? Value = default, string? Message = defa
     public new static Result<T> Failed(string? message)      => new(false, Message: message);
     public new static Result<T> Ok(T value)                  => new(true, value);
     public new static Result<T> Ok(T value, string? message) => new(true, value, message);
-
+    
+    public static implicit operator Result<T>(T value) => Ok(value);
+    
     public static async Task<Result<T>> Try(Func<Task<T>> action, Action<Exception>? callback = null)
     {
         try
         {
-            return Ok(await action());
+            return await action();
         }
         catch (Exception e)
         {
@@ -54,15 +56,17 @@ public record Result<T, TError>(bool Success, T? Value, TError? Error = default,
     public new static Result<T, TError> Ok(T value)                      => new(true, value);
     public new static Result<T, TError> Ok(T value, string message)      => new(true, value, Message: message);
 
+    public static implicit operator Result<T, TError>(T value) => Ok(value);
+    public static implicit operator Result<T, TError>(TError error) => Failed(error);
     public static async Task<Result<T, Exception>> Try(Func<Task<T>> action)
     {
         try
         {
-            return Result<T, Exception>.Ok(await action());
+            return await action();
         }
         catch (Exception e)
         {
-            return Result<T, Exception>.Failed(e);
+            return e;
         }
     }
 }
