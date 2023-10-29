@@ -1,0 +1,14 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+    <PropertyGroup>
+        <ImplicitUsings>enable</ImplicitUsings>
+        <Nullable>enable</Nullable>
+        <LangVersion>latest</LangVersion>
+        <TargetFramework>netstandard2.0</TargetFramework>
+        <RootNamespace>Resultts</RootNamespace>
+        <Authors>CAA LLC</Authors>
+        <Copyright>2023 CA Anderson LLC</Copyright>
+        <RepositoryUrl>https://github.com/chrisa23/Result</RepositoryUrl>
+    </PropertyGroup>
+
+</Project>
