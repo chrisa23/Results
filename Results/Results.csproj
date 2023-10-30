@@ -10,6 +10,7 @@
         <Copyright>2023 CA Anderson LLC</Copyright>
         <RepositoryUrl>https://github.com/chrisa23/Results</RepositoryUrl>
         <PackageId>CAA.Results</PackageId>
+        <Version>1.1.0</Version>
     </PropertyGroup>
 
 </Project>

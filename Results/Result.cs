@@ -4,7 +4,8 @@
 public record Result(bool Success, string? Message = default)
 {
     public static readonly Result Ok = new(true);
-    public static          Result Failed(string? error) => new(false, error);
+    public static          Result Failed(string? error)                 => new(false, error);
+    public static          Result Check(bool condition, string message) => condition ? Ok : Failed(message);
 
     public static implicit operator bool(Result result) => result.Success;
 
@@ -58,6 +59,8 @@ public record Result<T, TError>(bool Success, T? Value, TError? Error = default,
 
     public static implicit operator Result<T, TError>(T value) => Ok(value);
     public static implicit operator Result<T, TError>(TError error) => Failed(error);
+    
+    
     public static async Task<Result<T, Exception>> Try(Func<Task<T>> action)
     {
         try
